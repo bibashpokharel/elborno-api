@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 
 import { AuthModule } from './auth/auth.module';
 import { RolesGuard } from './auth/roles.guard';
+import { MembershipModule } from './membership/membership.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { RolesGuard } from './auth/roles.guard';
     }),
     UserModule,
     AuthModule,
+    MembershipModule,
   ],
   controllers: [AppController],
   providers: [AppService],
