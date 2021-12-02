@@ -1,4 +1,4 @@
-import { IsEmail, IsEnum, IsString, min, MinLength } from 'class-validator';
+import { IsEmail, IsEnum, IsString, MinLength } from 'class-validator';
 import { UserRole } from '../types/user.role';
 
 export class UserDto {

@@ -1,6 +1,6 @@
-import { MembershipType } from "../type/membership.type";
+import { MembershipType } from '../type/membership.type';
 
-export class MembershipDto{
-    id:string;
-    name:MembershipType;
+export class MembershipDto {
+  id: string;
+  name: MembershipType;
 }
