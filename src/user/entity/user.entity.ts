@@ -1,39 +1,46 @@
-import { BeforeInsert, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import * as bcrypt from "bcrypt";
+import {
+  BeforeInsert,
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
-import { UserRole } from "../types/user.role";
+import { UserRole } from '../types/user.role';
 
 @Entity()
 export class User {
-	@PrimaryGeneratedColumn("uuid")
-	id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-	@Column()
-	name: string;
+  @Column()
+  name: string;
 
-	@Column()
-	email: string;
+  @Column()
+  email: string;
 
-	@Column()
-	password: string;
+  @Column()
+  password: string;
 
-	@BeforeInsert()
-	async hashPassword() {
-		this.password = await bcrypt.hash(this.password, 10);
-	}
+  @BeforeInsert()
+  async hashPassword() {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
 
-	@Column({ type: "enum", enum: UserRole, default: UserRole.CUSTOMER })
-	role: UserRole;
+  @Column({ type: 'enum', enum: UserRole, default: UserRole.CUSTOMER })
+  role: UserRole;
 
-	@Column({ default: false })
-	locked: boolean;
+  @Column({ default: false })
+  locked: boolean;
 
-	@Column({ default: false })
-	archived: boolean;
+  @Column({ default: false })
+  archived: boolean;
 
-	@CreateDateColumn()
-	createdAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 
-	@UpdateDateColumn()
-	updatedAt: Date;
+  @UpdateDateColumn()
+  updatedAt: Date;
 }
