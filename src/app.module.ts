@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 
 import { AuthModule } from './auth/auth.module';
 import { MembershipModule } from './membership/membership.module';
+import { ServiceModule } from './service/service.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { MembershipModule } from './membership/membership.module';
     UserModule,
     AuthModule,
     MembershipModule,
+    ServiceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
